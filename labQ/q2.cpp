@@ -1,20 +1,15 @@
-//selectionsort
-
 #include<iostream>
 using namespace std;
 int findmin(int a[],int start, int end){
-    int min;
-    for(int i=start;i<=end;i++)
+    int index,min=a[start];
+    for( int i=start;i<=end;i++)
     {
-        for(int j=i+1;j<=end;j++)
-         {
-             if(a[i]<a[j])
-               min=i;
-              else
-               min =j;
-         }
+             if(min>a[i]){
+               min=a[i];
+               index=i;
     }
-    return min;
+    }
+    return index;
 }
 void selectionSort(int a[],int n)
 {
@@ -26,8 +21,8 @@ void selectionSort(int a[],int n)
          int temp=a[min];
          a[min]=a[start];
          a[start]=temp;
-        start++;  
         }
+        start++;
     }
      for(i=0;i<n;i++)
      cout<<" "<<a[i];
